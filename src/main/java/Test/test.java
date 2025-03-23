@@ -67,7 +67,7 @@ public class test {
             // Paso 5: Validar el mensaje "Product added"
             String alertMessage = driver.switchTo().alert().getText();
 
-            if (alertMessage.equals("Product added")) {
+            if (alertMessage.equals("Product added.")) {
                 System.out.println("Prueba exitosa: El producto se agregó correctamente al carrito.");
             } else {
                 System.out.println("Prueba fallida: El mensaje no coincide.");
