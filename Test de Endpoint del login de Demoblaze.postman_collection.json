@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "a91d0252-efcb-4ee7-941a-a3ba5358c0ed",
+		"name": "Test de Endpoint del login de Demoblaze",
+		"description": "## Descripción\n\nEste documento describe las pruebas realizadas en el endpoint de login de la plataforma **Demoblaze**. Se han diseñado varios casos de prueba para evaluar el comportamiento del sistema ante diferentes escenarios de autenticación.\n\n## Casos de Prueba\n\n### 1\\. Inicio de Sesión Exitoso\n\n**Descripción:** Se envían credenciales válidas y se espera una respuesta positiva que confirme el acceso al sistema.\n\n- **Entrada:** Usuario y contraseña correctos.\n    \n- **Salida esperada:** Código de estado HTTP 200 y mensaje de autenticación exitosa.\n    \n\n### 2\\. Inicio de Sesión con Credenciales Incorrectas\n\n**Descripción:** Se envían credenciales inválidas y se verifica que el sistema rechace la autenticación.\n\n- **Entrada:** Usuario o contraseña incorrectos.\n    \n- **Salida esperada:** Código de estado HTTP 401 o mensaje de error indicando credenciales inválidas.\n    \n\n### 3\\. Inicio de Sesión sin Credenciales\n\n**Descripción:** No se envía ninguna credencial y se verifica la respuesta del sistema.\n\n- **Entrada:** Sin usuario ni contraseña en la solicitud.\n    \n- **Salida esperada:** Código de estado HTTP 400 y mensaje de error indicando credenciales requeridas.\n    \n\n### 4\\. Inicio de Sesión sin Usuario\n\n**Descripción:** Se envía la solicitud sin incluir el nombre de usuario, pero con una contraseña.\n\n- **Entrada:** Contraseña presente, usuario ausente.\n    \n- **Salida esperada:** Código de estado HTTP 400 y mensaje de error indicando la falta del usuario.\n    \n\n### 5\\. Inicio de Sesión sin Contraseña\n\n**Descripción:** Se envía la solicitud sin incluir la contraseña, pero con un nombre de usuario válido.\n\n- **Entrada:** Usuario presente, contraseña ausente.\n    \n- **Salida esperada:** Código de estado HTTP 400 y mensaje de error indicando la falta de la contraseña.\n    \n\n## Conclusión\n\nLos resultados obtenidos en estas pruebas permitirán validar la correcta implementación del sistema de autenticación en **Demoblaze**, asegurando que responde de manera adecuada a distintos escenarios de inicio de sesión.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43345678"
+	},
+	"item": [
+		{
+			"name": "Inicio de Sesion exitoso",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"NewUsuarioTest\",\r\n  \"password\": \"UGFzczEyMzQ=\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/login",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inicio de sesión con credenciales incorrectas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"ErrorUsuarioTest\",\r\n  \"password\": \"ErrorPass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/login",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inicio de sesion sin credenciales",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"\",\r\n  \"password\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/login",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inicio de sesion sin Usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"\",\r\n  \"password\": \"UGFzczEyMzQ=\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/login",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inicio de sesion sin contraseña",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"NewUsuarioTest\",\r\n  \"password\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/login",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
